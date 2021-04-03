@@ -17,22 +17,35 @@ firebase.initializeApp({
   authDomain: 'react-blog-cbf68.firebaseapp.com',
   projectId: 'react-blog-cbf68',
 });
-
 const db = firebase.firestore();
 
-db.collection('posts')
-  .add({
-    title: 'Ada',
-    content: 'Lovelace',
-  })
-  .then((docRef) => {
-    console.log('Document written with ID: ', docRef.id);
-  })
-  .catch((error) => {
-    console.error('Error adding document: ', error);
-  });
+function writeToFirestore() {
+  db.collection('posts')
+    .add({
+      title: 'Ada',
+      content: 'Lovelace',
+    })
+    .then((docRef) => {
+      console.log('Document written with ID: ', docRef.id);
+    })
+    .catch((error) => {
+      console.error('Error adding document: ', error);
+    });
+}
+
+function read() {
+  db.collection('posts')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, ' => ', doc.data());
+      });
+    });
+}
 
 function App() {
+  read();
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
@@ -63,6 +76,7 @@ function App() {
         <div>
           <IfFirebaseAuthed>
             {() => {
+              // writeToFirestore();
               return <div>You are authenticated</div>;
             }}
           </IfFirebaseAuthed>
