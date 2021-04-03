@@ -4,6 +4,10 @@ class PostService {
   getPosts() {
     return db.query<Post>('posts');
   }
+
+  async save(post: Post) {
+    await db.save('posts', post);
+  }
 }
 
 export interface Post {

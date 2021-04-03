@@ -21,6 +21,10 @@ class CloudFirestore implements IDatabase {
     return records;
   }
 
+  async save<T>(recordType: string, record: T) {
+    await this.db.collection(recordType).add(record);
+  }
+
   private getDbInstance() {
     firebase.initializeApp(firebaseConfig);
     return firebase.firestore();
