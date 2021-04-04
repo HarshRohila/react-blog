@@ -13,6 +13,7 @@ import {
 import firebaseConfig from './firebaseConfig';
 import postsService from './services/post';
 import Home from './pages/Home';
+import Header from './components/Header';
 
 function writeToFirestore() {
   postsService.save({
@@ -30,6 +31,7 @@ function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
+        <Header />
         <Home />
         {/* <button
           onClick={() => {
