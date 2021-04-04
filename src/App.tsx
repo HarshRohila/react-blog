@@ -11,45 +11,27 @@ import {
   IfFirebaseAuthedAnd,
 } from '@react-firebase/auth';
 import firebaseConfig from './firebaseConfig';
-
-firebase.initializeApp({
-  apiKey: 'AIzaSyDHaf-Qy7OYRM5___osPlRTTAJmlFTtRjs',
-  authDomain: 'react-blog-cbf68.firebaseapp.com',
-  projectId: 'react-blog-cbf68',
-});
-const db = firebase.firestore();
+import postsService from './services/post';
+import Home from './pages/Home';
 
 function writeToFirestore() {
-  db.collection('posts')
-    .add({
-      title: 'Ada',
-      content: 'Lovelace',
-    })
-    .then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.error('Error adding document: ', error);
-    });
+  postsService.save({
+    title: 'harsh',
+    content: 'test',
+  });
 }
 
-function read() {
-  db.collection('posts')
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
-      });
-    });
+async function read() {
+  const posts = await postsService.getPosts();
+  console.log(posts);
 }
 
 function App() {
-  read();
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
-        <button
+        <Home />
+        {/* <button
           onClick={() => {
             const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(googleAuthProvider);
@@ -76,7 +58,7 @@ function App() {
         <div>
           <IfFirebaseAuthed>
             {() => {
-              // writeToFirestore();
+              writeToFirestore();
               return <div>You are authenticated</div>;
             }}
           </IfFirebaseAuthed>
@@ -86,7 +68,7 @@ function App() {
             }}
           </IfFirebaseAuthedAnd>
         </div>
-        <Editor />
+        <Editor /> */}
       </div>
     </FirebaseAuthProvider>
   );
