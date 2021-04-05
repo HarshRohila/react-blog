@@ -15,6 +15,9 @@ import postsService from './services/post';
 import Home from './pages/Home';
 import Header from './components/Header';
 
+// @ts-ignore
+import nightwind from 'nightwind/helper';
+
 function writeToFirestore() {
   postsService.save({
     title: 'harsh',
@@ -31,6 +34,7 @@ function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
+        <script dangerouslySetInnerHTML={{ __html: nightwind.init() }}></script>
         <Header />
         <Home />
         {/* <button

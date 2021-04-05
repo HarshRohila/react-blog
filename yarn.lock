@@ -2190,7 +2190,7 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@tailwindcss/postcss7-compat@^2.0.4", "tailwindcss@npm:@tailwindcss/postcss7-compat":
+"@tailwindcss/postcss7-compat@^2.0.4", tailwindcss@^2.0.0, "tailwindcss@npm:@tailwindcss/postcss7-compat":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@tailwindcss/postcss7-compat/-/postcss7-compat-2.0.4.tgz#30014c5acd15f92c888e15af489fec1f4e8ffad5"
   integrity sha512-+M9a/jAKQC+q+sSwsRfYWe1tbxxXXQKuhfh1nhUzAv7A6EOV4puMzGQnTW6oL1Qn/JzCJ8ozM1WmIBPdL6kD4A==
@@ -8277,6 +8277,13 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+nightwind@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/nightwind/-/nightwind-1.1.11.tgz#5c12521154cc6ff0b14f48cb46c9dd8457dde74d"
+  integrity sha512-otPDpr0u8uYEVUx+oMwriDFurTU4OwxMVf4b2Z26PkalV837qpDM7ym4LnwKLM4zROiH5B5+wubK93PyxxYF7A==
+  dependencies:
+    tailwindcss "^2.0.0"
 
 no-case@^3.0.4:
   version "3.0.4"
