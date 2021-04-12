@@ -8,6 +8,8 @@ import Header from './components/Header';
 import firebaseConfig from './firebaseConfig';
 import Home from './pages/Home';
 import postsService from './services/post';
+import { RouteComponentProps, Router } from '@reach/router';
+import BlogPostCards from './components/BlogPostCards';
 
 function writeToFirestore() {
   postsService.save({
@@ -26,7 +28,10 @@ function App() {
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
         <Header />
-        <Home />
+        <Router>
+          <RouterPage path="/" pageComponent={<Home />} />
+          <RouterPage path="/blog" pageComponent={<BlogPostCards />} />
+        </Router>
         {/* <button
           onClick={() => {
             const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -69,5 +74,8 @@ function App() {
     </FirebaseAuthProvider>
   );
 }
+
+const RouterPage = (props: { pageComponent: JSX.Element } & RouteComponentProps) =>
+  props.pageComponent;
 
 export default App;

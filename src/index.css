@@ -6,8 +6,11 @@
 :root {
   --primary-color: #3aafa9;
   --secondary-color: #17252a;
+  
   --secondary: var(--secondary-color);
   --primary: var(--primary-color);
+  --surface: #def2f1;
+  --background: #feffff;
 }
 
 html.dark {
