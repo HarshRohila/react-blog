@@ -1,6 +1,3 @@
-// @ts-ignore
-import nightwind from 'nightwind/helper';
-
 enum Themes {
   dark = 'dark',
   light = 'light',
@@ -27,7 +24,6 @@ function toggleLocalStorageTheme() {
 }
 
 export default function toggleTheme() {
-  nightwind.toggle();
   toggleLocalStorageTheme();
   toggleHTMLClass();
 }

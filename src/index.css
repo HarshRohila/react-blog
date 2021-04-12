@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+  --primary-color: #3aafa9;
+  --secondary-color: #17252a;
+  --secondary: var(--secondary-color);
+  --primary: var(--primary-color);
+}
+
+html.dark {
+  --primary: var(--secondary-color);
+  --secondary: var(--primary-color);
+}

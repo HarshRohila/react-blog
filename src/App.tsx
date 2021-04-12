@@ -1,22 +1,13 @@
-import './App.css';
-import Editor from './components/Editor';
+import { FirebaseAuthProvider } from '@react-firebase/auth';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/firestore';
 import React from 'react';
-import {
-  FirebaseAuthConsumer,
-  FirebaseAuthProvider,
-  IfFirebaseAuthed,
-  IfFirebaseAuthedAnd,
-} from '@react-firebase/auth';
-import firebaseConfig from './firebaseConfig';
-import postsService from './services/post';
-import Home from './pages/Home';
+import './App.css';
 import Header from './components/Header';
-
-// @ts-ignore
-import nightwind from 'nightwind/helper';
+import firebaseConfig from './firebaseConfig';
+import Home from './pages/Home';
+import postsService from './services/post';
 
 function writeToFirestore() {
   postsService.save({
@@ -34,7 +25,6 @@ function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseConfig}>
       <div className="App">
-        <script dangerouslySetInnerHTML={{ __html: nightwind.init() }}></script>
         <Header />
         <Home />
         {/* <button
